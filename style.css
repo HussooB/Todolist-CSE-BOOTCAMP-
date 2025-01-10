@@ -14,45 +14,68 @@ header{
 .input{
   display: flex;
   /* background-color: black; */
+  max-width: 1000px;
   padding: 10px;
-  width:70%;
-  margin-left: 25%;
-  margin-right: auto;
+  width:100%;
+  justify-content: center;
+  margin: 0 auto;
   margin-top: 20px;
 }
 .input .type{
-  width:60%;
+  /* width:80%; */
+  flex-grow: 2;
+  flex-shrink: 2;
+  flex-basis: 80%;
   margin-right: 20px;
 }
 .input .type img{
   position: relative;
-  left:95%;
+  left:90%;
   bottom: 50%;
 }
 .type input{
   width:100%;
   height: 40px;
   padding: 20px 10px;
-  
+  border: 1px solid #6C63FF;
+  color: #6C63FF;
+  border-radius: 5px;
 }
 input::placeholder{
-  font-size: 15px;
-  color: black;
+  font-size: 18px;
+  color: #C3C1E5;
   padding-left: 10px;
   
 }
+input:focus{
+  outline-color: #6C63FF;
+}
+.btn.img:hover{
+ /* filter: saturate(3); */
+ background-color: #554cff;
+}
 .btn{
-  margin-top: 2.5px;
+  margin-top: 2.7px;
+  flex-grow: 0;
   padding: 10px 25px;
   margin-right: 20px;
   background-color:#6C63FF;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
+  font-size: 16px;
   color:#ffff;
 }
+.btnA{
+  padding: 10px 25px;
+  border-radius: 5px;
+  color:#6C63FF;
+  font-size: 16px;
+  background-color: transparent;
+  border: 1px solid #6C63FF;
+}
 .btn img{
-  width:20px;
+  width:23px;
 }
 .btn:focus{
   border: none;
@@ -63,36 +86,166 @@ input::placeholder{
   border-radius: 10px;
   cursor: pointer;
 }
+.btn.all:hover{
+  background-color: #554cff;
+}
 .circle {
-width:50px;
+width:60px;
 padding-top: auto;
-height: 50px;
+height: 60px;
 position: absolute;
 top:90%;
-left:90%;
+left:70%;
 border-radius: 50%;
 background-color:#6C63FF;
 border: none;
 cursor: pointer;
 }
+.circle:hover{
+  background-color: #554cff;
+}
+.img1, .circle img {
+  max-width: 100%;
+  height: auto;
+}
+
 .circle img{
   /* padding-top: 5px; */
   /* padding-left: 1px; */
 }
 .big-img {
-/* margin-right:auto; */
-/* margin-left: auto; */
-/* background-color: #6C63FF; */
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 .big-img .img1{
-  /* margin-right:auto; */
-  margin-left: 40%;
-  height: 16rem;
-  /* background-color: #6C63FF; */
+  width: 15%;
   }
-  @media (max-width:410px){
-    /* .input .type{
-      width:60%;
-      margin-right: 20px;
-    } */
+  .empty{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 24px;
   }
+.note{
+  width:500px;
+  height: 289px;
+  /* background-color: black; */
+  position: absolute;
+  top:20%;
+  left:36%;
+  z-index: 40px;
+  color: #000000;
+  border: 2px solid #6C63FF;
+  border-radius: 10px;
+  display: none;
+  background-color: #F7F7F7;
+  filter:saturate(3);
+}
+.note h1{
+  text-align: center;
+  margin-top: 20px;
+}
+.note input{
+  /* width: 100%; */
+  height: 40px;
+  padding: 20px 10px;
+  margin: 20px 30px;
+  border: 1px solid #6C63FF;
+  color: #6C63FF;
+  border-radius: 5px;
+}
+.two{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+  /* background-color: blueviolet; */
+}
+.btn2{
+  display: flex;
+  justify-content: space-between;
+}
+.btn2 .btn{
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.background{
+  height: inherit;
+  width: 100vh;
+  background-color:#252525B2;
+  /* display: none; */
+}
+.list-note{
+  /* max-width:auto;
+   */
+   display: flex;
+   justify-content: center;
+   height: auto;
+  padding:20px ;
+  margin:20px;
+}
+.lists li{
+  list-style: none;
+  font-size: 35px;
+  border-bottom: 2px solid #6C63FF;
+  padding-bottom: 20px;
+  width: 650px;
+  margin-bottom: 30px;
+}
+.lists li input[type='checkbox']{
+  appearance: none;
+  /* -webkit-appearance: none;
+  -moz-appearance: none; */
+  width: 30px;
+  /* position: relative; */
+  height: 30px;
+  border: 2px solid #6C63FF;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+}
+.lists li input[type="checkbox"]:checked::before{
+  content: '';
+  width: 100%; 
+  height: 100%;
+  background-color: #6C63FF;
+  /* border-radius: 5px; */
+
+  display: block;
+}
+.lists li input[type='checkbox']:checked::after {
+  content: '✓';
+  color: #ffff;
+  position: absolute;
+  font-size: 20px;
+  top: 1.4px;
+  left: 3.7px;
+}
+
+
+
+
+
+
+
+  @media (max-width:1024px) { 
+      .btn{
+        margin-bottom: 20px;
+      }
+      .input{
+        display: flex;
+        /* background-color: black; */
+        max-width: 800px;
+        padding: 10px;
+        width:90%;
+        justify-content: center;
+        margin: 0 0;
+        margin-top: 20px;
+      }
+      .input .type{
+        width:100%;
+      }
+      
+     }

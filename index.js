@@ -9,8 +9,10 @@ addBtn.addEventListener('click',function(e){
   document.querySelector(".img1").style.display="none";
   background.style.display="block";
 })
-//here i will be adding the js for the new note section
+//here i will be adding the js for the new note section and array, 
+const arr = [];
 applyBtn.addEventListener('click',function(e){
+  background.style.display="none";
   const inputTextField=document.querySelector(".inputNote");
   const inputText=inputTextField.value.trim();
   const allNotes=document.querySelector(".lists");
@@ -22,12 +24,30 @@ applyBtn.addEventListener('click',function(e){
   const label=document.createElement('label');
   const img1=document.createElement('img');
   const img2=document.createElement('img');
-  label.textContent=inputText;
-  // const noteTextNode = document.createTextNode(inputText);
-  todoNote.appendChild(checkBox);
+    function add(){
+      arr.push(inputText);
+    }
+  add();
+  label.textContent=arr.map(function(text){
+    return text;
+  })
+  function render(){
+  if(arr[0]!==''){
+    arr.shift();
+    todoNote.appendChild(checkBox);
+    todoNote.appendChild(label);
+    // todoNote.appendChild(noteTextNode);
+    allNotes.appendChild(todoNote);
+    todoNote.appendChild(checkBox);
   todoNote.appendChild(label);
   // todoNote.appendChild(noteTextNode);
   allNotes.appendChild(todoNote);
+}
+   
+  }
+  render();
+  // const noteTextNode = document.createTextNode(inputText);
+  
   checkBox.addEventListener('change', function() {
     if (this.checked) { 
      label.style.textDecoration = 'line-through';
@@ -37,8 +57,36 @@ applyBtn.addEventListener('click',function(e){
   });
   inputTextField.value='';
 }
-
 });
+cancelBtn.addEventListener('click', function(e){
+  addNote.style.display="none";
+  background.style.display="none";
+  if(arr.length!==0){
+    document.querySelector(".empty").style.display="none";
+  document.querySelector(".img1").style.display="none";
+  }
+  else{
+    document.querySelector(".empty").style.display="flex";
+  document.querySelector(".img1").style.display="inline-block";
+  }
+  // document.querySelector(".lists").style.display="none";
+})
 
-
-
+background.addEventListener('click',function(e){
+   addNote.style.display="none";
+   background.style.display="none";
+   if(arr.length!==0){
+    document.querySelector(".empty").style.display="none";
+  document.querySelector(".img1").style.display="none";
+  }
+  else{
+    document.querySelector(".empty").style.display="flex";
+  document.querySelector(".img1").style.display="inline-block";
+  }
+})
+const moon = document.querySelector(".btn.img")
+moon.addEventListener('click',function(e){
+  document.body.style.backgroundColor="black";
+  document.body.style.color='white';
+})
+console.log(arr);
